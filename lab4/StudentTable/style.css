@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#name{
+    margin-top: 10px;
+}
+#name,#age{
+    padding: 20px;
+}
+#nameDiv input,#ageDiv input{
+    width: 400px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#nameDiv p, #ageDiv p{
+    visibility: hidden;
+    text-align: center;
+    color: red;
+}
+
+#btn{
+    display: flex;
+    justify-content: center;
+}
+
+#submit{
+    padding: 10px 30px;
+    background-color: rgb(59, 252, 59);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#tableDiv{
+    margin-top: 50px;
+}
+
+table{
+   border: 2px solid ;
+   font-size: 20px; 
+}
+th,td{
+    border: 2px solid ;
+    width: 200px;
+}
+
+td{
+    text-align: center;
+    padding: 5px;
+    border: 1px solid ;
+}
+

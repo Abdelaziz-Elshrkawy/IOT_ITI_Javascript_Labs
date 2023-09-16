@@ -1,0 +1,29 @@
+#nav, #img, h1{
+    text-align: center;
+}
+span{
+    margin: 0 40px;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+span:nth-child(1){
+    background-color: #ffc000;
+}
+span:nth-child(2){
+    background-color: #00af50;
+}
+span:nth-child(3){
+    background-color: #ff2c2c;
+}
+span:nth-child(4){
+    background-color: #ffc000;
+}
+#img{
+    margin: 100px 0;
+}
+img{
+    width: 350px;
+    border: 5px solid #ecd427;
+}

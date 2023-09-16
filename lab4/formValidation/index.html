@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="cont" style="text-align: center; margin-top: 150px">
+      <form action="#">
+        <div id="input">
+          <input type="text" name="name" id="name" placeholder="Name"/>
+          <input type="email" name="email" id="email" placeholder="Email"/>
+          <input type="password" name="password" id="password" placeholder="Password"/>
+        </div>
+        <div id="gender">
+          <span>Gender</span>
+          <input type="radio" name="gender" id="male" value="male"/>
+          <label for="male">Male</label>
+          <input type="radio" name="gender" id="female" value="female"/>
+          <label for="female">Female</label>
+        </div>
+        <div id="sports">
+          <span>Sports</span>
+          <input type="checkbox" name="sports" id="tennis" />
+          <label for="tennis">Tennis</label>
+          <input type="checkbox" name="sports" id="running" />
+          <label for="running">Running</label>
+          <input type="checkbox" name="sports" id="football" />
+          <label for="football">Football</label>
+        </div><div id="country">
+          <select name="country" id="country-select">
+            <option value=""></option>
+            <option value="Egypt">Egypt</option>
+            <option value="USA">USA</option>
+          </select>
+        </div>
+        <div id="btn">
+          <input type="submit" value="Submit"  id="submit">
+        </div>
+      </form>
+      <div id="errorDiv">
+        <p id="done" class="hidden" style="color: rgb(34, 255, 34);">
+          Your data Submitted successfully
+        </p>
+        <p id="errorName" class="hidden">
+          name must be more than 8 characters
+        </p>
+        <p id="errorEmail" class="hidden">
+          please type a valid email
+        </p>
+        <p id="errorPassword" class="hidden">
+          password must be longer than 12 character
+        </p>
+        <p id="errorGenderZero" class="hidden">
+          Gender is required
+        </p>
+        <p id="errorSportsZero" class="hidden">
+          select at least one sport
+        </p>
+        <p id="errorCountry" class="hidden">
+          Country is required
+        </p>
+        <p id="errorSports" class="hidden">
+          You can check two sports only
+        </p>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

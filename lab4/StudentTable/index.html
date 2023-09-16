@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Table</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="cont">
+        <form action="#">
+            <div id="nameDiv">
+                <input type="text" name="name" id="name" placeholder="Name">
+                <p id="nameLengthError">Name must be 3 letters or more</p>
+                <p id="nameRequireError">Name is Required</p>
+            </div>
+            <div id="ageDiv">
+                <input type="text" name="age" id="age" maxlength="2" placeholder="Age more than 18">
+                <p id="ageLengthError">Age must be 18 or more</p>
+                <p id="ageRequireError">Age is Required</p>
+            </div>
+            <div id="btn">
+                <input type="submit" value="Submit" id="submit">
+            </div>
+        </form>
+        <div id="tableDiv">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Age
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+    
+</body>
+
+</html>

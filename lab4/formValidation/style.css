@@ -1,0 +1,29 @@
+#input input {
+  display: block;
+  margin: 10px auto;
+}
+
+#gender span,
+#sports span {
+  display: inline-block;
+  width: 80px;
+}
+
+#gender,
+#sports {
+  display: flex;
+  margin: auto;
+  justify-items: center;
+  width: 15%;
+  margin-bottom: 5px;
+}
+#country{
+    margin: 5px auto;
+}
+.hidden {
+  display: none;
+}
+.error{
+  display: block;
+  color: red;
+}
