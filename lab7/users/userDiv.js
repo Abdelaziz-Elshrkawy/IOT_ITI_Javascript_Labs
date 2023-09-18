@@ -23,7 +23,7 @@ const createUserDiv = (user) => {
     
     userDiv.append(nameP, usernameP, emailP, addressP, phoneP, websiteP, companyP)
 
-    return userDiv
+    return userDiv.outerHTML
 }
 
 export default createUserDiv
