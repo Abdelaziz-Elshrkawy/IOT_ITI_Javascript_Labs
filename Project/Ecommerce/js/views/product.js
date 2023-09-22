@@ -1,6 +1,8 @@
+import { cartProduct } from "./cartProduct.js"
+
 const cartArr = []
 
-function Product(imgSrc, text, price, buttonClassName, buttonTextContent) {    
+function Product(imgSrc, text, price) {
     const productDiv = document.createElement('div')
     const imgDiv = document.createElement('div')
     const img = document.createElement('img')
@@ -8,7 +10,6 @@ function Product(imgSrc, text, price, buttonClassName, buttonTextContent) {
     const textP = document.createElement('p')
     const inputDiv = document.createElement('div')
     const btn = document.createElement('button')
-    const input = document.createElement('input')
     const priceSpan = document.createElement('span')
 
     productDiv.className = 'product-div'
@@ -16,20 +17,24 @@ function Product(imgSrc, text, price, buttonClassName, buttonTextContent) {
     textDiv.className = 'product-text-div'
     textP.className = 'product-text-p'
     inputDiv.className = 'product-input-div'
-    btn.className = buttonClassName || 'product-btn'
-    input.className = 'product-input'
     priceSpan.className = 'product-price'
+    btn.className = 'product-btn'
+
+    btn.name = text
+
+    priceSpan.innerHTML = `<b>Price:</b>  ${price}$`
     img.src = imgSrc
     img.alt = text
     textP.textContent = text
-    btn.textContent = buttonTextContent || 'Add to Cart'
-    input.type = 'text'
-    input.maxLength = 2
-    input.value = 1
-    priceSpan.innerHTML = `<b>Price:</b>  ${price}$`
+
+    btn.textContent = 'Add to Cart'
+
+
+
+
 
     imgDiv.appendChild(img)
-    inputDiv.append(input, btn)
+    inputDiv.append(btn)
     textDiv.append(textP, priceSpan, inputDiv)
 
     productDiv.append(imgDiv, textDiv, inputDiv)
@@ -37,31 +42,19 @@ function Product(imgSrc, text, price, buttonClassName, buttonTextContent) {
     return {
         html: productDiv,
         events: function () {
-            const productsBtn = document.getElementsByClassName(buttonClassName || 'product-btn')
-            const productsInput = document.getElementsByClassName('product-input')
-            if (buttonClassName != 'product-btn') {
-                for (let i = 0; i < productsBtn.length; i++) {
-                    productsBtn[i].addEventListener('click', (e) => {
-                        e.preventDefault()
-                        let cartNumber = document.getElementById('products-num')
-                        if (productsInput[i].value != '' && productsInput[i].value != 0) {
-                            if (cartNumber.textContent == '') {
-                                cartNumber.textContent = productsInput[i].value
-                            } else {
-                                cartNumber.textContent = parseInt(cartNumber.textContent) + parseInt(productsInput[i].value)
-                            }
-                            document.getElementById('products-num').style.display = 'inline'
-                            console.log(productsInput[i].value)
-                        }
-                    })
-                    productsInput[i].value = 1
-                    productsInput[i].addEventListener('input', () => {
-                        if (isNaN(productsInput[i].value)) {
-                            productsInput[i].value = ''
-                        }
-                    })
-                }
+            const productsBtn = document.getElementsByClassName('product-btn')
+            let cartNumber = document.getElementById('products-num')
+            for (const element of productsBtn) {
+                element.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    cartNumber.textContent = document.getElementsByClassName('cart-remove-btn').length+1
+                    cartNumber.style.display = 'inline'
+                    const price = e.target.parentNode.parentNode.children[1].children[1].textContent.split(':')[1].split('$')[0]
+                    console.log(price)
+                    cartProduct(e.target.parentNode.parentNode.children[0].firstChild.src, e.target.parentNode.parentNode.children[1].firstChild.textContent,price)
+                })
             }
+
         }
     }
 }

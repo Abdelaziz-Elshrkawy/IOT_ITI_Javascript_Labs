@@ -29,22 +29,6 @@ function animation() {
         cartAnimation.stop()
     }
 
-    const loginSpan = document.getElementById('login-span')
-    loginAnimation = bodymovin.loadAnimation({
-        container: loginSpan,
-        render: 'svg',
-        loop: false,
-        autoplay: false,
-        path: './assets/lottie/login1.json'
-    })
-    loginSpan.onmouseover = () => {
-        loginAnimation.play()
-    }
-    loginSpan.onmouseleave = () => {
-        loginAnimation.stop()
-    }
-    loginAnimation.setSpeed(1.1)
-
     loadAnimation = bodymovin.loadAnimation({
         container: document.getElementById('load'),
         render: 'svg',

@@ -12,13 +12,11 @@ export default function NavBar(obj, parent, data) {
     const productsNum = document.createElement('span')
     productsNum.id = 'products-num'
     cartSpan.appendChild(productsNum)
-    const loginSpan = document.createElement('span')
-    loginSpan.id = 'login-span'
-    const cartLoginDiv = document.createElement('div')
-    cartLoginDiv.id = 'cart-login-div'
-    cartLoginDiv.appendChild(cartSpan)
-    cartLoginDiv.appendChild(loginSpan)
+    const loginDiv = document.createElement('div')
+    loginDiv.id = 'cart-login-div'
+    loginDiv.appendChild(cartSpan)
     parent.appendChild(logoSpan)
+
     Object.keys(obj).forEach((key) => {
         const li = document.createElement('li')
         const a = document.createElement('a')
@@ -27,6 +25,7 @@ export default function NavBar(obj, parent, data) {
         a.id = `${key}-a`
         a.className = `nav-a`
         a.textContent = `${key[0].toUpperCase()}${key.slice(1)}`
+
         a.onclick = (e) => {
             e.preventDefault()
             const contentId = document.getElementById('rootDiv').firstChild.id.split('-')[0]
@@ -51,23 +50,5 @@ export default function NavBar(obj, parent, data) {
     nav.appendChild(ul)
 
     parent.appendChild(nav)
-    parent.appendChild(cartLoginDiv)
-    let cc = 0
-    /*     document.getElementById('cart-span').addEventListener('click', (e) => {
-            cc++
-            document.getElementById('products-num').textContent = cc
-            document.getElementById('products-num').style.backgroundColor = 'red'
-            document.getElementById('products-num').style.display = 'inline'
-        })
-        document.getElementById('login-span').addEventListener('click', (e) => {
-            if (cc > 0) {
-                cc--
-            }
-            if (cc > 0) {
-                document.getElementById('products-num').textContent = cc
-            }else {
-                document.getElementById('products-num').style.display = 'none'
-            }
-        }) */
-
+    parent.appendChild(loginDiv)
 }

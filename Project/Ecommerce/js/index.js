@@ -1,5 +1,6 @@
 import {animation, loadAnimation} from './animation/animation.js'
 import { Routing, pages } from './routing.js'
+import { Cart } from "./views/cart.js"
 import Footer from './views/footer.js'
 import NavBar from './views/navBar.js'
 import UpBtn from './views/upBtn.js'
@@ -10,6 +11,7 @@ const load = document.getElementById('load')
 
 window.onload = () => {
     Routing('home')
+    Cart().events()
     load.style.display = 'block'
     document.body.style.overflow = 'hidden'
     setTimeout(() => {
@@ -18,7 +20,7 @@ window.onload = () => {
         load.style.display = 'none'
         document.body.style.overflow = 'auto'
         loadAnimation.stop()
-    },3000)
+    }, 3000)
 }
 
 NavBar(pages, navDiv)
