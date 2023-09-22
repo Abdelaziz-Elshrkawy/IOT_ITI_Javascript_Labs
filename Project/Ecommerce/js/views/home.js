@@ -12,11 +12,10 @@ export default async function Home() {
     productsDiv.id = 'products-div'
 
     let categoriesArr = ['all']
-
+    
     try {
         let data = await (await getData()).json()
         data = data.products
-        console.log(data)
 
         for (let e of data) {
             if (!categoriesArr.includes(e.category)) {
