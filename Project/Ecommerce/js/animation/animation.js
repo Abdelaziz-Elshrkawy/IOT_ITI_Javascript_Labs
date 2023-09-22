@@ -1,41 +1,64 @@
-export default function animation() {
-    const logo = bodymovin.loadAnimation({
+
+let logoAnimation
+let cartAnimation
+let loginAnimation
+let loadAnimation
+
+function animation() {
+    logoAnimation = bodymovin.loadAnimation({
         container: document.getElementById('logo-span'),
         render: 'svg',
         loop: true,
         autoplay: true,
-        path: '../../assets/lottie/animation_lmmf31df.json'
+        path: './assets/lottie/animation_lmmf31df.json'
     })
-    logo.setSpeed(0.7)
+    logoAnimation.setSpeed(0.7)
 
     const cartSpan = document.getElementById('cart-span')
-    const cart = bodymovin.loadAnimation({
+    cartAnimation = bodymovin.loadAnimation({
         container: cartSpan,
         render: 'svg',
         loop: false,
         autoplay: false,
-        path: '../../assets/lottie/animation_lmmf2sbc.json'
+        path: './assets/lottie/animation_lmtg23ys.json'
     })
     cartSpan.onmouseover = () => {
-        cart.play()
+        cartAnimation.play()
     }
     cartSpan.onmouseleave = () => {
-        cart.stop()
+        cartAnimation.stop()
     }
-    
+
     const loginSpan = document.getElementById('login-span')
-    const login = bodymovin.loadAnimation({
+    loginAnimation = bodymovin.loadAnimation({
         container: loginSpan,
         render: 'svg',
         loop: false,
         autoplay: false,
-        path: '../../assets/lottie/login.json'
+        path: './assets/lottie/login1.json'
     })
     loginSpan.onmouseover = () => {
-        login.play()
+        loginAnimation.play()
     }
     loginSpan.onmouseleave = () => {
-        login.stop()
+        loginAnimation.stop()
     }
-    login.setSpeed(1.1)
+    loginAnimation.setSpeed(1.1)
+
+    loadAnimation = bodymovin.loadAnimation({
+        container: document.getElementById('load'),
+        render: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '../../assets/lottie/animation_lmmf351c.json'
+    })
+}
+
+
+export {
+    animation,
+    cartAnimation,
+    loadAnimation,
+    loginAnimation,
+    logoAnimation
 }
