@@ -208,7 +208,8 @@ nav {
   font-size: 1em;
   width: 150px;
 }
-#cart-empty-error,#cart-submitted{
+#cart-empty-error,
+#cart-submitted {
   display: block;
   margin: auto;
   width: 300px;
@@ -524,6 +525,9 @@ footer {
 
 /* --------------------------------------- */
 @media (max-width: 950px) {
+  #logo-span{
+    width: 80px;
+  }
   #aboutUs-div {
     height: 80vh;
   }
