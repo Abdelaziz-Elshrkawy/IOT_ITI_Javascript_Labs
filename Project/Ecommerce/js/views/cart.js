@@ -25,7 +25,7 @@ function Cart() {
     cartEmptyError.textContent = 'your cart is empty'
     totalP.textContent = 'Total Price is: 0$'
     submitMessage.textContent = 'your order submitted successfully'
-        
+
     cartTotalDiv.append(totalP, submitBtn, cartEmptyError, submitMessage)
     containersDiv.append(cartTotalDiv, cartProductsDiv)
     cart.appendChild(containersDiv)
@@ -61,10 +61,15 @@ function Cart() {
                         document.getElementById('submit-message').style.display = 'none'
                     }, 2000)
                     updateTotal()
-                }   
+                }
             })
             document.getElementById('cart-span').addEventListener('click', () => {
-                document.getElementById('cart').style.display = 'inline'
+                const cartDisplay = document.getElementById('cart').style.display
+                if (cartDisplay == 'none') {
+                    document.getElementById('cart').style.display = 'inline'
+                } else {
+                    document.getElementById('cart').style.display = 'none'
+                }
             })
         }
     }

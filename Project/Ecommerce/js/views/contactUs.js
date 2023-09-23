@@ -14,7 +14,7 @@ export default async function contactUs() {
     const messageError = document.createElement('p')
     const formSubmitBtn = document.createElement('button')
     const successMessage = document.createElement('p')
-
+    const doneDiv = document.createElement('div')
     contactUsDiv.id = 'contactUs-div'
     contactUsLottie.id = 'contactUs-lottie-div'
     formDiv.id = 'form-div'
@@ -26,7 +26,8 @@ export default async function contactUs() {
     emailError.id = 'form-email-error'
     messageError.id = 'form-message-error'
     successMessage.id = 'success-message'
-
+    doneDiv.id = 'done-div'
+    
     nameInput.type = 'text'
     nameInput.placeholder = 'Your Name'
     emailInput.type = 'text'
@@ -43,11 +44,12 @@ export default async function contactUs() {
     formSubmitBtn.textContent = 'Submit'
     successMessage.textContent = 'we got your message, Thank you for your time'
     successMessage.style.opacity = 0
+    doneDiv.style.opacity = 0
 
     nameDiv.appendChild(nameInput)
     emailDiv.appendChild(emailInput)
     messageDiv.appendChild(messageInput)
-    form.append(nameDiv, nameError, emailDiv, emailError, messageDiv, messageError, formSubmitBtn, successMessage)
+    form.append(nameDiv, nameError, emailDiv, emailError, messageDiv, messageError, formSubmitBtn, successMessage, doneDiv)
     formDiv.appendChild(form)
     contactUsDiv.append(contactUsLottie, formDiv)
 
@@ -61,6 +63,13 @@ export default async function contactUs() {
                 autoplay: true,
                 path: '../../assets/lottie/contactUs.json'
             })
+            const doneAnimation = bodymovin.loadAnimation({
+                container: document.getElementById('done-div'),
+                render: 'svg',
+                loop: false,
+                autoplay: false,
+                path: '../../assets/lottie/done.json'
+            })
             const confirmArr = [false, false, false]
             const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
             const name = document.querySelector('#form-name-div input')
@@ -70,6 +79,7 @@ export default async function contactUs() {
             const message = document.querySelector('#form-message-div textarea')
             const messageError = document.getElementById('form-message-error')
             const successMessage = document.getElementById('success-message')
+            const doneDiv = document.getElementById('done-div')
             document.getElementById('form-submit-btn').addEventListener('click', (e) => {
                 e.preventDefault()
                 if (name.value.length == 0) {
@@ -134,9 +144,12 @@ export default async function contactUs() {
                     email.value = ''
                     message.value = ''
                     successMessage.style.opacity = 1
+                    doneDiv.style.opacity = 1
+                    doneAnimation.play()
                     setTimeout(() => {
                         successMessage.style.opacity = 0
-
+                        doneDiv.style.opacity = 0
+                        doneAnimation.stop()
                     }, 2000);
                 }
 
