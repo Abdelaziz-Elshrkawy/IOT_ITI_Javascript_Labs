@@ -8,9 +8,7 @@ export default function UpBtn() {
     upBtn.style.cursor = 'pointer'
     upBtn.title = 'Go Up'
     upBtn.onclick = () => {
-        document.body.scrollIntoView({ behavior: 'smooth' })
-        document.body.scrollTop = 0;
-
+        document.body.scrollIntoView({ behavior: 'smooth',block:'start' })
     }
     window.onscroll = () => {
         const rootDivRect = rootDiv.getBoundingClientRect()
