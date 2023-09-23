@@ -12,7 +12,7 @@ export default async function aboutUs() {
     const div_4 = document.createElement('div')
     div_4.id = 'div-4'
 
-    div_2.textContent = 'Hey there, We a Punch of Developers and Career changers whose looking for an opportunity to change there life'
+    div_2.textContent = 'Hey there, We a bunch of Developers and Career changers whose looking for an opportunity to change there life'
     div_3.innerHTML = 'We aren\'t playing we are seeking for a better life, we have tensity we have passion and finally we have a <b>dream</b>'
 
     aboutUsDiv.append(div_1, div_2, div_3, div_4)
