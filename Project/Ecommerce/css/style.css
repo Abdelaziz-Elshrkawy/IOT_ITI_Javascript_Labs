@@ -44,7 +44,7 @@ body {
   background-color: #000000;
   position: sticky;
   top: 0;
-  height: 12vh;
+  height: 8vh;
   z-index: 99;
 }
 nav {
@@ -208,14 +208,21 @@ nav {
   font-size: 1em;
   width: 150px;
 }
+#cart-empty-error,#cart-submitted{
+  display: block;
+  margin: auto;
+  width: 300px;
+}
 #total-p {
   font-size: 1.5em;
 }
 #car-empty-error {
   color: rgb(255, 62, 62);
+  text-align: center;
 }
 #submit-message {
   color: rgb(53, 255, 53);
+  text-align: center;
 }
 #car-empty-error,
 #submit-message {

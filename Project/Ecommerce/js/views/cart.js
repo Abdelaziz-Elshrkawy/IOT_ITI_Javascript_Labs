@@ -22,9 +22,9 @@ function Cart() {
     submitMessage.id = 'submit-message'
 
     submitBtn.textContent = 'Submit'
-    cartEmptyError.textContent = 'your cart is empty'
+    cartEmptyError.innerHTML = '<span id="cart-empty-error"></span>your cart is empty'
     totalP.textContent = 'Total Price is: 0$'
-    submitMessage.textContent = 'your order submitted successfully'
+    submitMessage.innerHTML = '<span id="cart-submitted"></span>your order submitted successfully'
 
     cartTotalDiv.append(totalP, submitBtn, cartEmptyError, submitMessage)
     containersDiv.append(cartTotalDiv, cartProductsDiv)
@@ -32,6 +32,20 @@ function Cart() {
     return {
         html: null,
         events: function () {
+            const emptyCartAnimation = bodymovin.loadAnimation({
+                container: document.getElementById('cart-empty-error'),
+                render: 'svg',
+                loop: false,
+                autoplay: false,
+                path: '../../assets/lottie/emptyCart.json'
+            })
+            const orderSubmittedAnimation = bodymovin.loadAnimation({
+                container: document.getElementById('cart-submitted'),
+                render: 'svg',
+                loop: false,
+                autoplay: false,
+                path: '../../assets/lottie/orderSubmitted.json'
+            })
             document.getElementById('cart-close-btn').addEventListener('click', () => {
                 document.getElementById('cart').style.display = 'none'
             })
@@ -49,7 +63,9 @@ function Cart() {
                 const cartProductList = document.getElementById('cart-products-div')
                 if (cartProductList.children.length == 0) {
                     document.getElementById('car-empty-error').style.display = 'block'
+                    emptyCartAnimation.play()
                     setTimeout(() => {
+                        emptyCartAnimation.stop()
                         document.getElementById('car-empty-error').style.display = 'none'
                     }, 2000)
                 } else {
@@ -57,7 +73,9 @@ function Cart() {
                     document.getElementById('submit-message').style.display = 'block'
                     document.getElementById('products-num').style.display = 'none'
                     document.getElementById('products-num').textContent = ''
+                    orderSubmittedAnimation.play()
                     setTimeout(() => {
+                        orderSubmittedAnimation.stop()
                         document.getElementById('submit-message').style.display = 'none'
                     }, 2000)
                     updateTotal()
