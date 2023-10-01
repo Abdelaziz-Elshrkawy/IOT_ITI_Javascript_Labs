@@ -202,7 +202,6 @@ nav {
   width: 200px;
 }
 .cart-product-input-div {
- 
 }
 .cart-product-price {
   font-size: 1em;
@@ -524,9 +523,9 @@ footer {
 
 /* --------------------------------------- */
 @media (max-width: 950px) {
-  #logo-span{
+  #logo-span {
     width: 80px;
-  } 
+  }
   #aboutUs-div {
     height: 80vh;
   }
@@ -547,5 +546,12 @@ footer {
 
   .contact img {
     width: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  #prev-btn,
+  #next-btn {
+    display: none;
   }
 }
