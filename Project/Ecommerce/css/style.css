@@ -299,7 +299,7 @@ nav {
 #categories-div {
   display: flex;
   position: sticky;
-  top: 10%;
+  top: 11%;
   margin-top: 50px;
   flex-wrap: wrap;
   justify-content: center;
