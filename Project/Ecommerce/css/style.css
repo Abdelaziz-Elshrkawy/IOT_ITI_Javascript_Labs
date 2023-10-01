@@ -242,6 +242,7 @@ nav {
 .cart-remove-btn {
   background-color: red;
   width: 20px;
+  margin-left: 80px;
 }
 #load {
   display: none;
