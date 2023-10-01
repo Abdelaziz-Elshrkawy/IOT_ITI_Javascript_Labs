@@ -1,5 +1,3 @@
-import { Product } from "./product.js"
-
 function Cart() {
     const cart = document.getElementById('cart')
     const containersDiv = document.createElement('div')
